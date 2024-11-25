@@ -7,8 +7,12 @@ import { TbShoppingCartHeart } from "react-icons/tb";
 import SeachBox from './SearchBox/SearchBox';
 import ContryDropdown from '../ContryDropdown/ContryDropdown';
 import Navigation from './Navigation/Navigation';
+import { useContext } from 'react';
+import { MyContext } from '../../App';
+
 
 const Header =() =>{
+    const context = useContext(MyContext);
     return (
         <>
             <div className="headerWrapper">
@@ -27,7 +31,9 @@ const Header =() =>{
                         </div>
                             {/* Country */}
                         <div className='col-sm-10 d-flex align-items-center part2'>
-                            <ContryDropdown/>
+
+                            {context.contryList.length!==0 && <ContryDropdown/>}
+                            
 
                             {/* Seach */}
                             <SeachBox/>
